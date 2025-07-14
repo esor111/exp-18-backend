@@ -66,7 +66,7 @@ A Docker-containerized Express.js mock API server for a learning goals tracking 
 
 ## API Endpoints
 
-Once running, the server will be available at `http://localhost:3002`
+Once running, the server will be available at `http://localhost:3001`
 
 ### Health Check
 - `GET /health` - Server health status
@@ -103,12 +103,12 @@ The container includes a health check that verifies the `/health` endpoint every
 
 ```javascript
 // Get dashboard data
-fetch('http://localhost:3002/api/dashboard')
+fetch('http://localhost:3001/api/dashboard')
   .then(res => res.json())
   .then(data => console.log(data));
 
 // Add a rep to a subtopic
-fetch('http://localhost:3002/api/sub-topics/1-1/reps', {
+fetch('http://localhost:3001/api/sub-topics/1-1/reps', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ reps: 1 })
