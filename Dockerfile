@@ -22,15 +22,15 @@ RUN chown -R nextjs:nodejs /app
 USER nextjs
 
 # Expose the port the app runs on
-EXPOSE 3001
+EXPOSE 7001
 
 # Define environment variables
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=7001
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3001/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))"
+  CMD node -e "require('http').get('http://localhost:7001/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))"
 
 # Start the application
 CMD ["npm", "start"]
